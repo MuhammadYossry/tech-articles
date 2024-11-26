@@ -8,10 +8,10 @@
    - [Advanced Example: Traffic Management](#advanced-example-traffic-management)
 3. [Operator Pattern](#operator-pattern)
    - [Core Concepts](#core-concepts)
-   - [Real-World Example: Coffee Shop Chain](#real-world-example-coffee-shop)
-   - [Example: Database Management](#example-database)
-4. [Kubernetes Database Operator](#kubernetes-database-operator))
-5. [Best Practices and Patterns](#best-practices)
+   - [Example: Coffee Shop Chain](#example-coffee-shop-chain)
+   - [Example: Database Management](#example-database-managment)
+4. [Kubernetes Database Operator](#kubernetes-database-operator)
+5. [Recommended Practices and Patterns](#recommended-practices-and-patterns)
 6. [Conclusion](#conclusion)
 
 ## Introduction
@@ -446,7 +446,7 @@ func main() {
 }
 ```
 
-## Best Practices and Patterns
+## Recommended Practices and Patterns
 
 1. **Single Responsibility**
    - Each controller/operator should manage one type of resource
