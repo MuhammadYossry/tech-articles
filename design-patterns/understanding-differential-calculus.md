@@ -7,9 +7,9 @@
 3. [Modern Machine Learning Applications](#modern-machine-learning-applications)
 4. [What is Change?](#1-what-is-change)
 5. [Understanding Slope](#2-understanding-slope)
-6. [When Lines Curve](#3-when-lines-curve)
+6. [Slopes on Curved Lines](#3slopes-on-curved-lines)
 7. [Getting Precise with Limits](#4-getting-precise-with-limits)
-8. [Enter the Derivative](#5-enter-the-derivative)
+8. [Precise Slopes with Limits](#5-precise-slopes-with-limits)
 9. [Basic Rules Made Simple](#6-basic-rules-made-simple)
    - [Power Rule](#power-rule)
    - [Sum Rule](#sum-rule)
@@ -97,30 +97,47 @@ What makes differential calculus truly beautiful isn't just its practical applic
      - Gradient flow in transformer models
      - Sequence-to-sequence learning
 
-## 1. What is Change?
-Change happens when one thing varies based on another:
-- Like distance changing as time passes
-- Or temperature changing throughout the day
-- Or cost changing based on quantity
+## 1. Understanding Change
+Change occurs when one quantity varies in relation to another. In everyday life, we encounter many examples of change:
+- The distance traveled by a car changes as time passes
+- The temperature outside changes throughout the day
+- The cost of a product changes based on the quantity purchased
+
+Recognizing and measuring change is the foundation of differential calculus.
 
 ## 2. Understanding Slope
-Slope tells us "how steep" something is:
-- Think of it as "rise divided by run"
-- For a straight line, it's simple: slope = change in y ÷ change in x
-- Written mathematically: slope = Δy/Δx (where Δ means "change in")
+Slope is a way to quantify how quickly something is changing. Visually, slope represents the steepness of a line.
 
-## 3. When Lines Curve
-Real life isn't always straight lines. On curves:
-- The steepness changes at every point
-- We need to find the slope at specific points
-- We use something called a "tangent line" - a line that touches the curve at exactly one point
+For a straight line, the slope is constant and can be calculated using the "rise over run" formula:
 
-## 4. Getting Precise with Limits
-To find the exact slope at a point:
-1. Pick two points very close together on the curve
-2. Find the slope between them
-3. Move the points closer and closer together
-4. The slope approaches the true "instantaneous" rate of change
+Slope = Change in vertical distance (rise) ÷ Change in horizontal distance (run)
+
+Mathematically, this is written as:
+
+Slope = Δy/Δx, where Δ (delta) means "change in"
+
+![Slope Illustration](https://github.com/user-attachments/assets/a01b2926-1d86-4eb5-ac7e-f4d9d2d8e71a)
+
+## 3. Slopes on Curved Lines
+In real-world scenarios, many relationships are not linear. For curved lines, the slope (or steepness) changes at every point along the curve.
+
+To find the slope at a specific point on a curve, we use a concept called a tangent line. A tangent line is a straight line that touches the curve at exactly one point, and its slope represents the instantaneous rate of change at that point.
+
+![Tangent Line Illustration](https://github.com/user-attachments/assets/3cc22538-be59-4946-b8bf-c11178e0879f)
+
+## 4. Precise Slopes with Limits
+To determine the exact slope (or instantaneous rate of change) at a point on a curve:
+
+1. Select two points very close together on the curve.
+2. Calculate the slope between these two points using the "rise over run" formula.
+3. Move the points closer and closer together.
+4. As the points get infinitely close, the calculated slope approaches the true instantaneous rate of change at the point of interest.
+
+This process of moving points infinitely close together is called taking a limit, a fundamental concept in calculus.
+
+![Limit Illustration](https://github.com/user-attachments/assets/cdcd1af9-4a5e-462e-9e23-1e5d1b1df8ff)
+
+By understanding change, slope, and limits, we lay the groundwork for exploring derivatives, the powerful tool at the heart of differential calculus.
 
 Mathematically:
 ### slope = lim[Δx→0] [f(x + Δx) - f(x)]/Δx
