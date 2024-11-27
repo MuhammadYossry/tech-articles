@@ -1,6 +1,23 @@
 # The Beautiful Journey of Differential Calculus
 ![image = 100x100](https://github.com/user-attachments/assets/3ca3ca3f-4a8e-412d-9c9d-9adadf3f4bbe)
 ## Differential Calculus: The Poetry of Change
+## Table of Contents
+1. [Differential Calculus: The Poetry of Change](#differential-calculus-the-poetry-of-change)
+2. [Calculus Applications](#calculus-applications)
+3. [Modern Machine Learning Applications](#modern-machine-learning-applications)
+4. [What is Change?](#1-what-is-change)
+5. [Understanding Slope](#2-understanding-slope)
+6. [When Lines Curve](#3-when-lines-curve)
+7. [Getting Precise with Limits](#4-getting-precise-with-limits)
+8. [Enter the Derivative](#5-enter-the-derivative)
+9. [Basic Rules Made Simple](#6-basic-rules-made-simple)
+   - [Power Rule](#power-rule)
+   - [Sum Rule](#sum-rule)
+   - [Product Rule](#product-rule)
+   - [Quotient Rule](#quotient-rule)
+   - [Chain Rule](#chain-rule)
+   - [More Examples](#more-examples)
+10. [Conclusion](#conclusion)
 
 Mathematics, at its heart, tells stories about the universe. Among these stories, differential calculus stands as one of the most elegant narratives ever conceived by human minds. It's a tale about change – not just any change, but the precise moment when transformation happens.
 
