@@ -4,14 +4,12 @@
 1. [Introduction](#introduction)
 2. [Core Reconciliation Pattern](#core-reconciliation-pattern)
    - [Basic Concepts](#basic-concepts)
-   - [Simple Implementation](#simple-implementation)
    - [Real-World Example: Component Tree](#real-world-example-component-tree)
 3. [Advanced Reconciliation](#advanced-reconciliation)
    - [Fiber Architecture](#fiber-architecture)
    - [Example: Async Rendering](#example-async-rendering)
-4. [Custom Reconciler Implementation](#custom-reconciler-implementation)
-5. [Recommended Practices](#recommended-practices)
-6. [Conclusion](#conclusion)
+4. [Recommended Practices](#recommended-practices)
+5. [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -32,7 +30,18 @@ The pattern consists of three key elements:
 3. **Reconciliation Process**: Algorithm to align actual DOM with Virtual DOM
 
 Here's a simple implementation:
-
+```mermaid
+flowchart TD
+    subgraph "Core Reconciliation Pattern"
+        A[User Action] --> B[React Component]
+        B --> C[Virtual DOM Tree]
+        C --> D{Diff Algorithm}
+        D --> |Changes Needed| E[Update Queue]
+        D --> |No Changes| F[Skip Update]
+        E --> G[DOM Updates]
+        G --> H[Browser DOM]
+    end
+```
 ```typescript
 interface VirtualNode {
   type: string;
@@ -135,7 +144,18 @@ class SimpleReconciler {
 ### Real-World Example: Component Tree
 
 Let's implement a more practical example with a component tree:
-
+```mermaid
+flowchart LR
+    subgraph "Component Tree Reconciler"
+        I[Component] --> J[Props Changed?]
+        I --> K[Children Changed?]
+        J --> |Yes| L[Schedule Update]
+        K --> |Yes| M[Schedule Children Updates]
+        L --> N[Update Queue]
+        M --> N
+        N --> O[Flush Updates]
+    end
+```
 ```typescript
 interface Component {
   type: 'component';
@@ -236,7 +256,22 @@ class ComponentReconciler {
 ### Fiber Architecture
 
 React's Fiber architecture extends the basic reconciliation pattern with sophisticated scheduling:
-
+```mermaid
+flowchart TD
+    subgraph "Fiber Architecture"
+        P[Root Fiber] --> Q[Component Fiber]
+        Q --> R[Child Fiber]
+        Q --> S[Sibling Fiber]
+        
+        T[Work Phase] --> U{Priority Level}
+        U --> |High| V[Sync Mode]
+        U --> |Low| W[Concurrent Mode]
+        
+        V --> X[Commit Phase]
+        W --> X
+        X --> Y[DOM Updates]
+    end
+```
 ```typescript
 interface FiberNode {
   type: string;
@@ -328,7 +363,19 @@ class FiberReconciler {
 ### Example: Async Rendering
 
 Here's how React handles async rendering with reconciliation:
-
+```mermaid
+flowchart LR
+    subgraph "Async Rendering System"
+        AA[Async Component] --> BB{Check State}
+        BB --> |Pending| CC[Show Fallback]
+        BB --> |Resolved| DD[Render Content]
+        BB --> |Error| EE[Error Boundary]
+        
+        CC --> FF[Update When Ready]
+        DD --> GG[Commit to DOM]
+        EE --> HH[Show Error UI]
+    end
+```
 ```typescript
 interface AsyncComponent {
   type: string;
@@ -392,7 +439,23 @@ class AsyncReconciler {
   }
 }
 ```
-
+```mermaid
+flowchart TD
+    subgraph "Complete Reconciliation System"
+        AAA[User Input] --> BBB[React Component Tree]
+        BBB --> CCC[Fiber Reconciler]
+        CCC --> DDD[Work Loop]
+        DDD --> EEE{Priority Check}
+        EEE --> |High| FFF[Synchronous Work]
+        EEE --> |Low| GGG[Concurrent Work]
+        FFF & GGG --> HHH[Commit Phase]
+        HHH --> III[DOM Updates]
+        
+        JJJ[Suspense Boundary] --> KKK[Async Component]
+        KKK --> |Loading| LLL[Fallback UI]
+        KKK --> |Loaded| MMM[Component UI]
+    end
+```
 ## Recommended Practices
 
 1. **Key Management**
