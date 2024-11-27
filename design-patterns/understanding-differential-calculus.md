@@ -116,14 +116,12 @@ Mathematically, this is written as:
 
 Slope = Δy/Δx, where Δ (delta) means "change in"
 
-![Slope Illustration](https://github.com/user-attachments/assets/a01b2926-1d86-4eb5-ac7e-f4d9d2d8e71a)
 
 ## 3. Slopes on Curved Lines
 In real-world scenarios, many relationships are not linear. For curved lines, the slope (or steepness) changes at every point along the curve.
 
 To find the slope at a specific point on a curve, we use a concept called a tangent line. A tangent line is a straight line that touches the curve at exactly one point, and its slope represents the instantaneous rate of change at that point.
 
-![Tangent Line Illustration](https://github.com/user-attachments/assets/3cc22538-be59-4946-b8bf-c11178e0879f)
 
 ## 4. Precise Slopes with Limits
 To determine the exact slope (or instantaneous rate of change) at a point on a curve:
@@ -135,7 +133,6 @@ To determine the exact slope (or instantaneous rate of change) at a point on a c
 
 This process of moving points infinitely close together is called taking a limit, a fundamental concept in calculus.
 
-![Limit Illustration](https://github.com/user-attachments/assets/cdcd1af9-4a5e-462e-9e23-1e5d1b1df8ff)
 
 By understanding change, slope, and limits, we lay the groundwork for exploring derivatives, the powerful tool at the heart of differential calculus.
 
