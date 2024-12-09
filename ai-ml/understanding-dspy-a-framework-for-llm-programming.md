@@ -582,44 +582,77 @@ flowchart TB
     classDef validation fill:#2C514C,stroke:#183833,color:#fff
     classDef error fill:#4A3B52,stroke:#2E2435,color:#fff
     classDef storage fill:#2F4858,stroke:#1B2F3D,color:#fff
+    classDef note fill:#435B66,stroke:#2E404D,color:#fff,stroke-dasharray: 5 5
 
-    Q[/"User Query"/]:::primary
+    Q[/"Input: User Query"/]:::primary
+
+    subgraph Pipeline["DSPy QA Pipeline"]
+        direction TB
+        
+        subgraph Retrieval["1. Document Retrieval"]
+            direction TB
+            R["DocumentRetriever Module"]:::secondary
+            VDB[(Vector Store)]:::storage
+            RNote["Semantic search,
+            Relevance ranking,
+            Context assembly"]:::note
+        end
+
+        subgraph Generation["2. Answer Generation"]
+            direction TB
+            AG["AnswerGenerator Module"]:::tertiary
+            AGNote["Chain-of-Thought reasoning,
+            Context integration,
+            Confidence scoring"]:::note
+        end
+
+        subgraph Validation["3. Answer Validation"]
+            direction TB
+            AV["AnswerValidator Module"]:::validation
+            AVNote["Factual verification,
+            Source alignment,
+            Quality checks"]:::note
+        end
+
+        subgraph Monitoring["Pipeline Monitoring"]
+            direction TB
+            M["Metrics & Telemetry"]:::secondary
+            L["Logging System"]:::secondary
+            MNote["Response times,
+            Success rates,
+            Quality metrics"]:::note
+        end
+    end
+
+    subgraph ErrorManagement["Error Management"]
+        direction TB
+        EH["Error Handler"]:::error
+        EL["Error Logger"]:::error
+        EHNote["Graceful degradation,
+        Recovery strategies,
+        User feedback"]:::note
+    end
+
+    Q --> Retrieval
+    R <--> |"Query & Fetch"| VDB
+    R --> |"Retrieved Context"| Generation
+    Generation --> |"Generated Answer"| Validation
     
-    subgraph Pipeline["QA Pipeline"]
-        direction TB
-        R["Document Retriever"]:::secondary
-        VDB[(Vector Store)]:::storage
-        AG["Answer Generator"]:::tertiary
-        AV["Answer Validator"]:::validation
-        M["Metrics & Logging"]:::secondary
-    end
-
-    subgraph Process["Processing Steps"]
-        direction TB
-        S1["1. Context Retrieval"]:::secondary
-        S2["2. Answer Generation"]:::tertiary
-        S3["3. Validation"]:::validation
-        S4["4. Response Assembly"]:::secondary
-    end
-
-    subgraph ErrorHandle["Error Handling"]
-        direction TB
-        EM["Error Management"]:::error
-        EL["Error Logging"]:::error
-    end
-
-    Q --> Pipeline
-    R <--> VDB
-    R --> AG
-    AG --> AV
+    Validation --> |"Valid Response"| Response[/"Output: Final Response"/]:::primary
+    Validation --> |"Invalid Response"| Generation
     
-    Pipeline --> Process
-    Process --> |Success| Response[/"Final Response"/]:::primary
-    Process --> |Error| ErrorHandle
-    ErrorHandle --> Response
+    Pipeline --> |"Error Detected"| ErrorManagement
+    ErrorManagement --> |"Error Response"| Response
 
-    M --> |Track Metrics| Pipeline
-    M --> |Log Events| ErrorHandle
+    Monitoring --> |"Performance Metrics"| Pipeline
+    Monitoring --> |"Error Events"| ErrorManagement
+    
+    %% Invisible links for better layout
+    RNote ~~~ R
+    AGNote ~~~ AG
+    AVNote ~~~ AV
+    MNote ~~~ M
+    EHNote ~~~ EH
 ```
 
 ### Implementation
