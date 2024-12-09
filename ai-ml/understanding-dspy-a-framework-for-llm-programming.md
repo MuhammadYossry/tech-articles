@@ -593,34 +593,26 @@ flowchart TB
             direction TB
             R["DocumentRetriever Module"]:::secondary
             VDB[(Vector Store)]:::storage
-            RNote["Semantic search,
-            Relevance ranking,
-            Context assembly"]:::note
+            RNote["Semantic search, Relevance ranking, Context assembly"]:::note
         end
 
         subgraph Generation["2. Answer Generation"]
             direction TB
             AG["AnswerGenerator Module"]:::tertiary
-            AGNote["Chain-of-Thought reasoning,
-            Context integration,
-            Confidence scoring"]:::note
+            AGNote["Chain-of-Thought reasoning, Context integration, Confidence scoring"]:::note
         end
 
         subgraph Validation["3. Answer Validation"]
             direction TB
             AV["AnswerValidator Module"]:::validation
-            AVNote["Factual verification,
-            Source alignment,
-            Quality checks"]:::note
+            AVNote["Factual verification, Source alignment, Quality checks"]:::note
         end
 
         subgraph Monitoring["Pipeline Monitoring"]
             direction TB
             M["Metrics & Telemetry"]:::secondary
             L["Logging System"]:::secondary
-            MNote["Response times,
-            Success rates,
-            Quality metrics"]:::note
+            MNote["Response times, Success rates, Quality metrics"]:::note
         end
     end
 
@@ -628,9 +620,7 @@ flowchart TB
         direction TB
         EH["Error Handler"]:::error
         EL["Error Logger"]:::error
-        EHNote["Graceful degradation,
-        Recovery strategies,
-        User feedback"]:::note
+        EHNote["Graceful degradation, Recovery strategies, User feedback"]:::note
     end
 
     Q --> Retrieval
