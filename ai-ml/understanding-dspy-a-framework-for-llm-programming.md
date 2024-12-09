@@ -574,7 +574,6 @@ The pipeline is designed for a question-answering system that:
     'tertiaryColor': '#1B3B6F'
   }
 }}%%
-
 flowchart TB
     classDef primary fill:#2B4570,stroke:#1a2d4d,color:#fff
     classDef secondary fill:#305F72,stroke:#1a3d4d,color:#fff
@@ -589,7 +588,7 @@ flowchart TB
     subgraph Pipeline["DSPy QA Pipeline"]
         direction TB
         
-        subgraph Retrieval["1. Document Retrieval"]
+        subgraph Retrieval["1 Document Retrieval"]
             direction TB
             R["DocumentRetriever Module"]:::secondary
             VDB[(Vector Store)]:::storage
