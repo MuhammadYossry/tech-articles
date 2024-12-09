@@ -588,30 +588,34 @@ flowchart TB
     subgraph Pipeline["DSPy QA Pipeline"]
         direction TB
         
-        subgraph Retrieval["1 Document Retrieval"]
+        subgraph Retrieval["1 - Document Retrieval"]
             direction TB
             R["DocumentRetriever Module"]:::secondary
             VDB[(Vector Store)]:::storage
-            RNote["Semantic search, Relevance ranking, Context assembly"]:::note
+            RNote["Performs semantic search, relevance ranking, and context assembly."]:::note
+            RNote --- R
         end
 
-        subgraph Generation["2. Answer Generation"]
+        subgraph Generation["2 - Answer Generation"]
             direction TB
             AG["AnswerGenerator Module"]:::tertiary
-            AGNote["Chain-of-Thought reasoning, Context integration, Confidence scoring"]:::note
+            AGNote["Executes chain-of-thought reasoning, context integration, and confidence scoring."]:::note
+            AGNote --- AG
         end
 
-        subgraph Validation["3. Answer Validation"]
+        subgraph Validation["3 - Answer Validation"]
             direction TB
             AV["AnswerValidator Module"]:::validation
-            AVNote["Factual verification, Source alignment, Quality checks"]:::note
+            AVNote["Ensures factual verification, source alignment, and quality checks."]:::note
+            AVNote --- AV
         end
 
-        subgraph Monitoring["Pipeline Monitoring"]
+        subgraph Monitoring["4 - Pipeline Monitoring"]
             direction TB
             M["Metrics & Telemetry"]:::secondary
             L["Logging System"]:::secondary
-            MNote["Response times, Success rates, Quality metrics"]:::note
+            MNote["Tracks response times, success rates, and quality metrics."]:::note
+            MNote --- M
         end
     end
 
@@ -619,7 +623,8 @@ flowchart TB
         direction TB
         EH["Error Handler"]:::error
         EL["Error Logger"]:::error
-        EHNote["Graceful degradation, Recovery strategies, User feedback"]:::note
+        EHNote["Handles graceful degradation, recovery strategies, and user feedback."]:::note
+        EHNote --- EH
     end
 
     Q --> Retrieval
@@ -635,13 +640,6 @@ flowchart TB
 
     Monitoring --> |"Performance Metrics"| Pipeline
     Monitoring --> |"Error Events"| ErrorManagement
-    
-    %% Invisible links for better layout
-    RNote ~~~ R
-    AGNote ~~~ AG
-    AVNote ~~~ AV
-    MNote ~~~ M
-    EHNote ~~~ EH
 ```
 
 ### Implementation
@@ -939,7 +937,6 @@ This pipeline implementation includes several features:
    - Source documentation
    - Error recovery
 
-![image](https://github.com/user-attachments/assets/2f5246ea-a56f-4963-a378-314f9298f524)
 
 
 This implementation provides a solid foundation for building production-grade LLM applications, with the flexibility to adapt to specific use cases and requirements.
