@@ -7,6 +7,7 @@ Chain of Thought (CoT) prompting is a powerful technique that guides AI systems 
 ## Table of Contents
 - [Understanding CoT Principles](#understanding-cot-principles)
 - [Multi-Phase System Example](#multi-phase-system-example)
+- [Multi-Phase System Example 2](#multi-phase-system-example-2)
 - [Implementing CoT in Practice](#implementing-cot-in-practice)
 - [Analysis and Benefits](#analysis-and-benefits)
 - [Core Benefits](#core-benefits)
@@ -16,8 +17,259 @@ Chain of Thought (CoT) prompting is a powerful technique that guides AI systems 
 ## Understanding CoT Principles
 
 Chain of Thought prompting works by breaking down complex reasoning into explicit steps, much like how a doctor processes patient information. The key is not just reaching a conclusion, but documenting the thinking process that leads to it.
-
 ## Multi-Phase System Example
+This example demonstrates how to chain prompts together to perform a comprehensive market analysis for a new product launch. Each phase's output becomes structured input for the next phase, creating a coherent analysis pipeline.
+```mermaid
+flowchart TB
+    subgraph Input[Initial Input]
+        start[Product Concept] --> marketData[Market Data]
+        marketData --> competitors[Competitor Info]
+    end
+
+    subgraph Phase1[Market Analysis Phase]
+        direction TB
+        P1input[Input Analysis] --> P1process[Market Segmentation]
+        P1process --> P1output[Target Segments]
+        
+        style P1input fill:#e1f5fe
+        style P1process fill:#e1f5fe
+        style P1output fill:#e1f5fe
+    end
+
+    subgraph Phase2[Competitor Analysis Phase]
+        direction TB
+        P2input[Competitor Mapping] --> P2process[SWOT Analysis]
+        P2process --> P2output[Competition Matrix]
+        
+        style P2input fill:#e8f5e9
+        style P2process fill:#e8f5e9
+        style P2output fill:#e8f5e9
+    end
+
+    subgraph Phase3[Strategy Formation Phase]
+        direction TB
+        P3input[Strategy Planning] --> P3process[Position Development]
+        P3process --> P3output[Launch Strategy]
+        
+        style P3input fill:#fff3e0
+        style P3process fill:#fff3e0
+        style P3output fill:#fff3e0
+    end
+
+    subgraph Phase4[Action Plan Phase]
+        direction TB
+        P4input[Task Definition] --> P4process[Resource Planning]
+        P4process --> P4output[Implementation Plan]
+        
+        style P4input fill:#f3e5f5
+        style P4process fill:#f3e5f5
+        style P4output fill:#f3e5f5
+    end
+
+    Input --> Phase1
+    P1output --> Phase2
+    P2output --> Phase3
+    P3output --> Phase4
+```
+### Initial Input
+```json
+{
+    "product": {
+        "name": "EcoCharge",
+        "category": "Consumer Electronics",
+        "description": "Solar-powered smartphone charger with integrated battery",
+        "target_price_range": "$49-79",
+        "unique_features": ["Solar charging", "Weather resistant", "Compact design"]
+    },
+    "market_data": {
+        "total_market_size": "$5.2B",
+        "growth_rate": "12% YoY",
+        "region": "North America"
+    }
+}
+```
+
+### Phase 1: Market Analysis
+
+#### Prompt Template:
+```
+You are a Market Analysis Expert. Analyze the following product and market data to identify and segment potential markets. Focus on:
+1. Customer segmentation based on needs and behaviors
+2. Market size for each segment
+3. Growth potential and trends
+
+Input Data:
+${phase1_input}
+
+Provide output in the following structure:
+{
+    "segments": [],
+    "total_addressable_market": {},
+    "growth_metrics": {}
+}
+```
+
+#### Output Example:
+```json
+{
+    "segments": [
+        {
+            "name": "Eco-conscious Professionals",
+            "size": "2.1M potential customers",
+            "characteristics": ["Tech-savvy", "Environmentally conscious", "Urban"],
+            "willingness_to_pay": "$65-85"
+        },
+        {
+            "name": "Outdoor Enthusiasts",
+            "size": "1.8M potential customers",
+            "characteristics": ["Active lifestyle", "Adventure seekers", "Value durability"],
+            "willingness_to_pay": "$70-100"
+        }
+    ],
+    "total_addressable_market": {
+        "size": "$245M",
+        "growth_potential": "15% CAGR",
+        "market_share_target": "5% by Year 2"
+    }
+}
+```
+
+### Phase 2: Competitor Analysis
+
+#### Prompt Template:
+```
+You are a Competitive Intelligence Analyst. Using the market segmentation data and competitor information, perform a detailed competitive analysis.
+
+Previous Phase Output: ${phase1_output}
+Competitor Data: ${competitor_data}
+
+Analyze:
+1. Direct and indirect competitors
+2. Competitive advantages and weaknesses
+3. Market positioning opportunities
+
+Structure the output as a competitive positioning matrix with SWOT analysis.
+```
+
+#### Output Example:
+```json
+{
+    "competitive_landscape": {
+        "direct_competitors": [
+            {
+                "name": "PowerBank Pro",
+                "market_share": "15%",
+                "key_strengths": ["Brand recognition", "Distribution channels"],
+                "key_weaknesses": ["Higher price", "No solar option"]
+            }
+        ],
+        "positioning_opportunities": [
+            "Eco-friendly premium positioning",
+            "Outdoor adventure market focus",
+            "Urban professional convenience angle"
+        ]
+    },
+    "swot_analysis": {
+        "strengths": ["Unique solar feature", "Price point", "Design"],
+        "weaknesses": ["New brand", "Limited distribution"],
+        "opportunities": ["Growing eco-consciousness", "Outdoor market expansion"],
+        "threats": ["Established competitors", "Technology changes"]
+    }
+}
+```
+
+### Phase 3: Strategy Formation
+
+#### Prompt Template:
+```
+You are a Strategic Planning Expert. Based on the market segmentation and competitive analysis, develop a comprehensive launch strategy.
+
+Market Analysis: ${phase1_output}
+Competitive Analysis: ${phase2_output}
+
+Design a launch strategy that:
+1. Defines clear positioning
+2. Outlines marketing channels
+3. Sets pricing strategy
+4. Establishes growth targets
+```
+
+#### Output Example:
+```json
+{
+    "positioning_strategy": {
+        "primary_message": "Sustainable power for the modern adventurer",
+        "target_segments": ["Outdoor Enthusiasts", "Eco-conscious Professionals"],
+        "value_proposition": "Premium eco-friendly portable power solution"
+    },
+    "go_to_market": {
+        "launch_channels": [
+            {
+                "channel": "Direct to Consumer",
+                "priority": "High",
+                "timeline": "Month 0-3"
+            },
+            {
+                "channel": "Outdoor Retail Partnerships",
+                "priority": "Medium",
+                "timeline": "Month 4-6"
+            }
+        ],
+        "pricing_strategy": {
+            "launch_price": "$69.99",
+            "promotional_strategy": "Early bird discount for first 1000 units"
+        }
+    }
+}
+```
+
+### Phase 4: Action Plan
+
+#### Prompt Template:
+```
+You are a Project Implementation Specialist. Convert the launch strategy into an actionable implementation plan.
+
+Strategy Document: ${phase3_output}
+
+Create a detailed action plan including:
+1. Timeline and milestones
+2. Resource requirements
+3. Budget allocation
+4. Success metrics
+```
+
+#### Output Example:
+```json
+{
+    "implementation_plan": {
+        "phases": [
+            {
+                "name": "Pre-launch",
+                "duration": "3 months",
+                "key_tasks": [
+                    "Website development",
+                    "Marketing material creation",
+                    "Influencer partnership setup"
+                ],
+                "budget": "$150,000"
+            }
+        ],
+        "critical_milestones": [
+            {
+                "milestone": "Website Launch",
+                "date": "Month 1, Week 4",
+                "dependencies": ["Content creation", "E-commerce setup"]
+            }
+        ],
+        "success_metrics": {
+            "sales_targets": "1000 units in first month",
+            "customer_acquisition_cost": "Max $35 per customer",
+            "market_penetration": "2% in target segments by month 6"
+        }
+    }
+}
+```
+## Multi-Phase System Example 2
 
 Let's examine how a medical diagnosis system would implement CoT through multiple phases:
 
