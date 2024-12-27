@@ -2,7 +2,8 @@
 
 ## Introduction
 
-Chain of Thought (CoT) prompting is a powerful technique that guides AI systems through explicit reasoning steps. The example provided in the original prompt demonstrates this through a technical query analysis system. Let's explore this concept through a different lens: a Medical Diagnosis Support System.
+Chain of Thought (CoT) prompting is a powerful technique that guides AI systems through explicit reasoning steps.
+Chain of Thought prompting works by breaking down complex reasoning into explicit steps, much like how a doctor processes patient information. The key is not just reaching a conclusion, but documenting the thinking process that leads to it.
 
 ## Table of Contents
 - [Understanding CoT Principles](#understanding-cot-principles)
@@ -16,8 +17,7 @@ Chain of Thought (CoT) prompting is a powerful technique that guides AI systems 
 
 ## Understanding CoT Principles
 
-Chain of Thought prompting works by breaking down complex reasoning into explicit steps, much like how a doctor processes patient information. The key is not just reaching a conclusion, but documenting the thinking process that leads to it.
-
+The example provided in the with a prompt demonstrates this through a technical query analysis system. Let's explore this concept through a different lens: a Medical Diagnosis Support System.
 ## Multi-Phase System Example
 
 Let's examine how a medical diagnosis system would implement CoT through multiple phases:
@@ -86,6 +86,62 @@ ANALYSIS:
 
 OUTPUT: Recommended testing protocol
 ```
+### Full Prompt
+```
+Patient Case:
+"45-year-old female presenting with progressive shortness of breath over 3 days"
+
+Phase 1 Thinking:
+- First, I need to understand the progression pattern
+- Must consider both acute and chronic causes
+- Need to check for risk factors
+- Important to note the timeframe is 3 days
+
+Phase 2 Thinking:
+- Progressive nature suggests non-emergency but concerning
+- Three-day timeline rules out some chronic conditions
+- Age and gender provide important context
+- Need to consider common causes in this demographic
+
+Phase 3 Thinking:
+- Developing list of possibilities from most to least likely
+- Considering severity indicators
+- Evaluating need for immediate intervention
+- Determining risk stratification
+
+Phase 4 Thinking:
+- Planning diagnostic approach
+- Prioritizing tests based on severity and likelihood
+- Considering cost and availability
+- Preparing for possible outcomes
+```
+```mermaid
+flowchart TB
+    subgraph Phase1[Phase 1: Data Collection]
+        A1[Patient Data] --> A2[Initial Assessment]
+        A2 --> A3[Structured Profile]
+    end
+    
+    subgraph Phase2[Phase 2: Pattern Recognition]
+        B1[Pattern Analysis] --> B2[Symptom Clustering]
+        B2 --> B3[Pattern Identification]
+    end
+    
+    subgraph Phase3[Phase 3: Differential Diagnosis]
+        C1[Condition Ranking] --> C2[Risk Assessment]
+        C2 --> C3[Diagnosis List]
+    end
+    
+    subgraph Phase4[Phase 4: Test Selection]
+        D1[Test Evaluation] --> D2[Protocol Creation]
+        D2 --> D3[Final Recommendations]
+    end
+    
+    A3 --> B1
+    B3 --> C1
+    C3 --> D1
+```
+
 ## Market Analysis for Product Launch use case
 This example demonstrates how to chain prompts together to perform a comprehensive market analysis for a new product launch. Each phase's output becomes structured input for the next phase, creating a coherent analysis pipeline.
 ```mermaid
@@ -328,63 +384,8 @@ Create a detailed action plan including:
 ```
 
 ## Implementing CoT in Practice
-```mermaid
-flowchart TB
-    subgraph Phase1[Phase 1: Data Collection]
-        A1[Patient Data] --> A2[Initial Assessment]
-        A2 --> A3[Structured Profile]
-    end
-    
-    subgraph Phase2[Phase 2: Pattern Recognition]
-        B1[Pattern Analysis] --> B2[Symptom Clustering]
-        B2 --> B3[Pattern Identification]
-    end
-    
-    subgraph Phase3[Phase 3: Differential Diagnosis]
-        C1[Condition Ranking] --> C2[Risk Assessment]
-        C2 --> C3[Diagnosis List]
-    end
-    
-    subgraph Phase4[Phase 4: Test Selection]
-        D1[Test Evaluation] --> D2[Protocol Creation]
-        D2 --> D3[Final Recommendations]
-    end
-    
-    A3 --> B1
-    B3 --> C1
-    C3 --> D1
-```
 The power of CoT lies in making each step explicit. Let's see how this works in a real scenario:
-
-```
-Patient Case:
-"45-year-old female presenting with progressive shortness of breath over 3 days"
-
-Phase 1 Thinking:
-- First, I need to understand the progression pattern
-- Must consider both acute and chronic causes
-- Need to check for risk factors
-- Important to note the timeframe is 3 days
-
-Phase 2 Thinking:
-- Progressive nature suggests non-emergency but concerning
-- Three-day timeline rules out some chronic conditions
-- Age and gender provide important context
-- Need to consider common causes in this demographic
-
-Phase 3 Thinking:
-- Developing list of possibilities from most to least likely
-- Considering severity indicators
-- Evaluating need for immediate intervention
-- Determining risk stratification
-
-Phase 4 Thinking:
-- Planning diagnostic approach
-- Prioritizing tests based on severity and likelihood
-- Considering cost and availability
-- Preparing for possible outcomes
-```
-another CoT example, this time from a different domain - Aircraft Maintenance Troubleshooting using AI system:
+This time from a different domain - Aircraft Maintenance Troubleshooting using AI system:
 ```
 Scenario: "Aircraft experiencing unusual vibration during cruise flight"
 
