@@ -99,25 +99,25 @@ flowchart TB
     end
 
     %% Phase 1
-    subgraph Phase1["1. Market Analysis"]
+    subgraph Phase1["Market Analysis"]
         P1input["Input Analysis"] --> P1process["Market Segmentation"]
         P1process --> P1output["Target Segments"]
     end
 
     %% Phase 2
-    subgraph Phase2["2. Competitor Analysis"]
+    subgraph Phase2["Competitor Analysis"]
         P2input["Competitor Mapping"] --> P2process["SWOT Analysis"]
         P2process --> P2output["Competition Matrix"]
     end
 
     %% Phase 3
-    subgraph Phase3["3. Strategy Formation"]
+    subgraph Phase3["Strategy Formation"]
         P3input["Strategy Planning"] --> P3process["Position Development"]
         P3process --> P3output["Launch Strategy"]
     end
 
     %% Phase 4
-    subgraph Phase4["4. Action Plan"]
+    subgraph Phase4["Action Plan"]
         P4input["Task Definition"] --> P4process["Resource Planning"]
         P4process --> P4output["Implementation Plan"]
     end
@@ -353,11 +353,6 @@ flowchart TB
     A3 --> B1
     B3 --> C1
     C3 --> D1
-    
-    style Phase1 fill:#e1f5fe
-    style Phase2 fill:#e8f5e9
-    style Phase3 fill:#fff3e0
-    style Phase4 fill:#f3e5f5
 ```
 The power of CoT lies in making each step explicit. Let's see how this works in a real scenario:
 
