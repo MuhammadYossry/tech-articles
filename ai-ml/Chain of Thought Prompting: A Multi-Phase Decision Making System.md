@@ -7,7 +7,7 @@ Chain of Thought (CoT) prompting is a powerful technique that guides AI systems 
 ## Table of Contents
 - [Understanding CoT Principles](#understanding-cot-principles)
 - [Multi-Phase System Example](#multi-phase-system-example)
-- [Multi-Phase System Example 2](#multi-phase-system-example-2)
+- [Market Analysis for Product Launch use case](#market-analysis-for-product-launch-use-case)
 - [Implementing CoT in Practice](#implementing-cot-in-practice)
 - [Analysis and Benefits](#analysis-and-benefits)
 - [Core Benefits](#core-benefits)
@@ -17,8 +17,76 @@ Chain of Thought (CoT) prompting is a powerful technique that guides AI systems 
 ## Understanding CoT Principles
 
 Chain of Thought prompting works by breaking down complex reasoning into explicit steps, much like how a doctor processes patient information. The key is not just reaching a conclusion, but documenting the thinking process that leads to it.
+
 ## Multi-Phase System Example
-### Market Analysis for Product Launch use case
+
+Let's examine how a medical diagnosis system would implement CoT through multiple phases:
+
+### Phase 1: Initial Data Collection
+This phase serves as the information gathering foundation. Like a detective collecting evidence,
+it focuses on assembling all relevant data points while maintaining objectivity and completeness.
+The key is to gather information without jumping to conclusions.
+```
+THOUGHT PROCESS: "I need to gather all relevant patient information before making any assumptions."
+
+INPUT: Patient presents with shortness of breath
+ANALYSIS:
+1. What type of breathing difficulty?
+2. When did symptoms start?
+3. Any related symptoms?
+4. Patient history relevance?
+
+OUTPUT: Structured patient data profile
+```
+
+### Phase 2: Symptom Pattern Recognition
+This phase acts as a pattern matching engine. Think of it as a skilled art curator who can spot subtle connections between different pieces.
+It processes raw data into meaningful patterns that can suggest possible pathways for investigation.
+```
+THOUGHT PROCESS: "Now that I have the data, I need to identify patterns that might suggest certain conditions."
+
+INPUT: Structured patient data
+ANALYSIS:
+1. Compare against known symptom clusters
+2. Consider seasonal factors
+3. Evaluate demographic patterns
+4. Check for common comorbidities
+
+OUTPUT: Potential symptom patterns identified
+```
+
+### Phase 3: Differential Diagnosis
+Working like a chess player evaluating possible moves, this phase weighs different possibilities against each other.
+It considers not just what's most likely, but also what's most dangerous if missed.
+```
+THOUGHT PROCESS: "Based on the patterns, what are the possible conditions, from most to least likely?"
+
+INPUT: Symptom patterns
+ANALYSIS:
+1. Rank conditions by probability
+2. Consider exclusion criteria
+3. Evaluate risk factors
+4. Check for rare but critical conditions
+
+OUTPUT: Ranked list of potential diagnoses
+```
+
+### Phase 4: Test Selection
+Working like a chess player evaluating possible moves, this phase weighs different possibilities against each other.
+It considers not just what's most likely, but also what's most dangerous if missed.
+```
+THOUGHT PROCESS: "Which tests would most efficiently confirm or rule out these possibilities?"
+
+INPUT: Ranked diagnoses
+ANALYSIS:
+1. Consider test sensitivity/specificity
+2. Evaluate cost-effectiveness
+3. Account for patient factors
+4. Prioritize critical conditions
+
+OUTPUT: Recommended testing protocol
+```
+## Market Analysis for Product Launch use case
 This example demonstrates how to chain prompts together to perform a comprehensive market analysis for a new product launch. Each phase's output becomes structured input for the next phase, creating a coherent analysis pipeline.
 ```mermaid
 flowchart TB
@@ -257,74 +325,6 @@ Create a detailed action plan including:
         }
     }
 }
-```
-## Multi-Phase System Example 2
-
-Let's examine how a medical diagnosis system would implement CoT through multiple phases:
-
-### Phase 1: Initial Data Collection
-This phase serves as the information gathering foundation. Like a detective collecting evidence,
-it focuses on assembling all relevant data points while maintaining objectivity and completeness.
-The key is to gather information without jumping to conclusions.
-```
-THOUGHT PROCESS: "I need to gather all relevant patient information before making any assumptions."
-
-INPUT: Patient presents with shortness of breath
-ANALYSIS:
-1. What type of breathing difficulty?
-2. When did symptoms start?
-3. Any related symptoms?
-4. Patient history relevance?
-
-OUTPUT: Structured patient data profile
-```
-
-### Phase 2: Symptom Pattern Recognition
-This phase acts as a pattern matching engine. Think of it as a skilled art curator who can spot subtle connections between different pieces.
-It processes raw data into meaningful patterns that can suggest possible pathways for investigation.
-```
-THOUGHT PROCESS: "Now that I have the data, I need to identify patterns that might suggest certain conditions."
-
-INPUT: Structured patient data
-ANALYSIS:
-1. Compare against known symptom clusters
-2. Consider seasonal factors
-3. Evaluate demographic patterns
-4. Check for common comorbidities
-
-OUTPUT: Potential symptom patterns identified
-```
-
-### Phase 3: Differential Diagnosis
-Working like a chess player evaluating possible moves, this phase weighs different possibilities against each other.
-It considers not just what's most likely, but also what's most dangerous if missed.
-```
-THOUGHT PROCESS: "Based on the patterns, what are the possible conditions, from most to least likely?"
-
-INPUT: Symptom patterns
-ANALYSIS:
-1. Rank conditions by probability
-2. Consider exclusion criteria
-3. Evaluate risk factors
-4. Check for rare but critical conditions
-
-OUTPUT: Ranked list of potential diagnoses
-```
-
-### Phase 4: Test Selection
-Working like a chess player evaluating possible moves, this phase weighs different possibilities against each other.
-It considers not just what's most likely, but also what's most dangerous if missed.
-```
-THOUGHT PROCESS: "Which tests would most efficiently confirm or rule out these possibilities?"
-
-INPUT: Ranked diagnoses
-ANALYSIS:
-1. Consider test sensitivity/specificity
-2. Evaluate cost-effectiveness
-3. Account for patient factors
-4. Prioritize critical conditions
-
-OUTPUT: Recommended testing protocol
 ```
 
 ## Implementing CoT in Practice
