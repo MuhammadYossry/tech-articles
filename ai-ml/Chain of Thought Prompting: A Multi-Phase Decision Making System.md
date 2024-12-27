@@ -18,6 +18,7 @@ Chain of Thought (CoT) prompting is a powerful technique that guides AI systems 
 
 Chain of Thought prompting works by breaking down complex reasoning into explicit steps, much like how a doctor processes patient information. The key is not just reaching a conclusion, but documenting the thinking process that leads to it.
 ## Multi-Phase System Example
+### Market Analysis for Product Launch use case
 This example demonstrates how to chain prompts together to perform a comprehensive market analysis for a new product launch. Each phase's output becomes structured input for the next phase, creating a coherent analysis pipeline.
 ```mermaid
 flowchart TB
@@ -31,9 +32,9 @@ flowchart TB
         P1input[Input Analysis] --> P1process[Market Segmentation]
         P1process --> P1output[Target Segments]
         
-        style P1input fill:#e1f5fe
-        style P1process fill:#e1f5fe
-        style P1output fill:#e1f5fe
+        style P1input
+        style P1process
+        style P1output
     end
 
     subgraph Phase2[Competitor Analysis Phase]
@@ -41,9 +42,9 @@ flowchart TB
         P2input[Competitor Mapping] --> P2process[SWOT Analysis]
         P2process --> P2output[Competition Matrix]
         
-        style P2input fill:#e8f5e9
-        style P2process fill:#e8f5e9
-        style P2output fill:#e8f5e9
+        style P2input
+        style P2process
+        style P2output
     end
 
     subgraph Phase3[Strategy Formation Phase]
@@ -51,9 +52,9 @@ flowchart TB
         P3input[Strategy Planning] --> P3process[Position Development]
         P3process --> P3output[Launch Strategy]
         
-        style P3input fill:#fff3e0
-        style P3process fill:#fff3e0
-        style P3output fill:#fff3e0
+        style P3input
+        style P3process
+        style P3output
     end
 
     subgraph Phase4[Action Plan Phase]
@@ -61,9 +62,9 @@ flowchart TB
         P4input[Task Definition] --> P4process[Resource Planning]
         P4process --> P4output[Implementation Plan]
         
-        style P4input fill:#f3e5f5
-        style P4process fill:#f3e5f5
-        style P4output fill:#f3e5f5
+        style P4input
+        style P4process
+        style P4output
     end
 
     Input --> Phase1
