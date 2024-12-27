@@ -22,55 +22,43 @@ Chain of Thought prompting works by breaking down complex reasoning into explici
 This example demonstrates how to chain prompts together to perform a comprehensive market analysis for a new product launch. Each phase's output becomes structured input for the next phase, creating a coherent analysis pipeline.
 ```mermaid
 flowchart TB
-    subgraph Input[Initial Input]
-        start[Product Concept] --> marketData[Market Data]
-        marketData --> competitors[Competitor Info]
+    %% Initial Input Section
+    subgraph Input["Initial Input"]
+        start["Product Concept"]
+        marketData["Market Data"]
+        competitors["Competitor Info"]
+        start --> marketData --> competitors
     end
 
-    subgraph Phase1[Market Analysis Phase]
-        direction TB
-        P1input[Input Analysis] --> P1process[Market Segmentation]
-        P1process --> P1output[Target Segments]
-        
-        style P1input
-        style P1process
-        style P1output
+    %% Phase 1
+    subgraph Phase1["1. Market Analysis"]
+        P1input["Input Analysis"] --> P1process["Market Segmentation"]
+        P1process --> P1output["Target Segments"]
     end
 
-    subgraph Phase2[Competitor Analysis Phase]
-        direction TB
-        P2input[Competitor Mapping] --> P2process[SWOT Analysis]
-        P2process --> P2output[Competition Matrix]
-        
-        style P2input
-        style P2process
-        style P2output
+    %% Phase 2
+    subgraph Phase2["2. Competitor Analysis"]
+        P2input["Competitor Mapping"] --> P2process["SWOT Analysis"]
+        P2process --> P2output["Competition Matrix"]
     end
 
-    subgraph Phase3[Strategy Formation Phase]
-        direction TB
-        P3input[Strategy Planning] --> P3process[Position Development]
-        P3process --> P3output[Launch Strategy]
-        
-        style P3input
-        style P3process
-        style P3output
+    %% Phase 3
+    subgraph Phase3["3. Strategy Formation"]
+        P3input["Strategy Planning"] --> P3process["Position Development"]
+        P3process --> P3output["Launch Strategy"]
     end
 
-    subgraph Phase4[Action Plan Phase]
-        direction TB
-        P4input[Task Definition] --> P4process[Resource Planning]
-        P4process --> P4output[Implementation Plan]
-        
-        style P4input
-        style P4process
-        style P4output
+    %% Phase 4
+    subgraph Phase4["4. Action Plan"]
+        P4input["Task Definition"] --> P4process["Resource Planning"]
+        P4process --> P4output["Implementation Plan"]
     end
 
+    %% Main Flow Connections
     Input --> Phase1
-    P1output --> Phase2
-    P2output --> Phase3
-    P3output --> Phase4
+    Phase1 --> Phase2
+    Phase2 --> Phase3
+    Phase3 --> Phase4
 ```
 ### Initial Input
 ```json
