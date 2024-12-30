@@ -63,7 +63,7 @@ It processes the output with `sed` to format it in a tree-like style.
    Output:
 
    ```
-      |
+      .
       |--dir1
       |----subdir1
       |----subdir2
@@ -79,7 +79,7 @@ It processes the output with `sed` to format it in a tree-like style.
    Output:
 
    ```
-      |
+      .
       |--dir1
       |----subdir1
       |--dir2
