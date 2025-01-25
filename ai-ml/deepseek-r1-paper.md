@@ -171,9 +171,18 @@ flowchart LR
     Input --> Rewards
     Rewards --> Update
 
-    style Input fill:#e8eaf6,stroke:#283593
-    style Rewards fill:#e0f2f1,stroke:#00695c
-    style Update fill:#fce4ec,stroke:#880e4f
+    style Input fill:#e8eaf6,stroke:#283593,color:#000000
+    style Rewards fill:#e0f2f1,stroke:#00695c,color:#000000
+    style Update fill:#fce4ec,stroke:#880e4f,color:#000000
+
+    style A fill:#ffffff,stroke:#283593,color:#000000
+    style B fill:#ffffff,stroke:#283593,color:#000000
+    style C fill:#ffffff,stroke:#00695c,color:#000000
+    style D fill:#ffffff,stroke:#00695c,color:#000000
+    style E fill:#ffffff,stroke:#00695c,color:#000000
+    style F fill:#ffffff,stroke:#00695c,color:#000000
+    style G fill:#ffffff,stroke:#880e4f,color:#000000
+    style H fill:#ffffff,stroke:#880e4f,color:#000000
 ```
 
 ### GRPO Mechanism:
