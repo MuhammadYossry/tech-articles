@@ -372,7 +372,6 @@ flowchart TB
 ```
 
 ## The Role of Ontologies in MACP: Semantic Foundation
-
 One of MACP's most powerful features is its integration of formal ontologies to enable semantic understanding between agents. Unlike earlier protocols that focused primarily on syntax, MACP emphasizes meaning through shared conceptual frameworks.
 
 ### Ontologies vs. RAG: Complementary Approaches
@@ -916,7 +915,7 @@ Key benefits of MACP include:
 - **Scalable Collaboration**: Supporting everything from simple exchanges to complex workflows
 - **Future-Ready Design**: Laying the groundwork for increasingly autonomous and intelligent systems
 
-By adopting MACP, developers can create AI ecosystems where specialized agents work together seamlessly, combining their capabilities to solve problems that would be beyond any single system. This vision of collaborative AI represents not just a technical advancement, but a fundamental shift in how we conceptualize artificial intelligence—moving from isolated systems to interconnected, communicative, and collaborative networks of specialized capabilities.
+By adopting MACP, developers can create AI ecosystems where specialized agents work together seamlessly, combining their capabilities to solve problems that would be beyond any single system. This vision of collaborative AI represents not just a technical advancement, but a fundamental shift in how we conceptualize artificial intelligence, moving from isolated systems to interconnected, communicative, and collaborative networks of specialized capabilities.
 
 As we continue to refine and extend MACP, we invite the broader AI community to contribute to this important foundation for the future of agent communication.
 
@@ -924,8 +923,14 @@ As we continue to refine and extend MACP, we invite the broader AI community to 
 
 ## References and Further Reading
 
-1. Foundation for Intelligent Physical Agents. (2002). [*FIPA ACL Message Structure Specification*](http://www.fipa.org/specs/fipa00061/SC00061G.html).
+1. [Foundation for Intelligent Physical Agents. (2002). *FIPA ACL Message Structure Specification*](https://ieeexplore.ieee.org/document/773093).
 2. [Hockett, C. F. (1960). The Origin of Speech](https://web.stanford.edu/class/linguist197a/hockett60sciam.pdf).
-3. [W3C. (2012).](https://www.w3.org/TR/owl2-overview/) *OWL 2 Web Ontology Language Document Overview*. 
-4. [Wooldridge, M. (2009).](https://www.wiley.com/en-us/An+Introduction+to+MultiAgent+Systems%2C+2nd+Edition-p-9780470519462) *An Introduction to MultiAgent Systems*. John Wiley & Sons.
-5. Lewis, M., et al. (2023). [*Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*.](https://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdfhttps://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf) Proceedings of NeurIPS 2023.
+3. [W3C. (2012). *OWL 2 Web Ontology Language Document Overview*.](https://www.w3.org/TR/owl2-overview/)
+4. [Wooldridge, M. (2009). *An Introduction to MultiAgent Systems*. John Wiley & Sons.](https://www.wiley.com/en-us/An+Introduction+to+MultiAgent+Systems%2C+2nd+Edition-p-9780470519462)
+5. [Lewis, M., et al. (2023). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. Proceedings of NeurIPS 2023.](https://arxiv.org/abs/2005.11401)
+6. [An Introduction to Ontology Engineering](https://open.umn.edu/opentextbooks/textbooks/an-introduction-to-ontology-engineering)
+
+### Videos
+Building Ontologies: An Introduction for Engineers
+[![Building Ontologies: An Introduction for Engineers](https://img.youtube.com/vi/PrLY3Gzj6w4/hqdefault.jpg)](https://www.youtube.com/watch?v=Gh0f2Us0hr0)
+
