@@ -168,86 +168,79 @@ The application layer is where agent-specific logic resides:
 
 The MACP message structure provides rich expressiveness while maintaining clarity and structure:
 ```mermaid
-flowchart TD
-    M[MACP Message] --> E[Envelope]
-    M --> C[Context]
-    M --> P[Performative]
-    M --> CT[Content]
-    M --> S[Semantic]
-    M --> EX[Expectations]
+flowchart TB
+    M[MACP Message] --> E[Envelope Layer]
+    M --> C[Context Layer]
+    M --> P[Performative Layer]
+    M --> CT[Content Layer]
+    M --> S[Semantic Layer]
+    M --> EX[Expectations Layer]
     
-    subgraph "Envelope Layer"
-        E --> E1[Message ID]
-        E --> E2[Timestamp]
-        E --> E3[Protocol Version]
-        E --> E4[Priority]
-        E --> E5[Message Trace]
-    end
+    %% Envelope Layer
+    E --> E1[Message ID]
+    E --> E2[Timestamp]
+    E --> E3[Protocol Version]
+    E --> E4[Priority]
+    E --> E5[Message Trace]
     
-    subgraph "Context Layer"
-        C --> C1[Conversation Context]
-        C --> C2[References]
-        C --> C3[Temporal Context]
-        
-        C1 --> C1A[Conversation ID]
-        C1 --> C1B[Conversation State]
-        C1 --> C1C[History Reference]
-        
-        C2 --> C2A[Previous Messages]
-        C2 --> C2B[External Resources]
-        
-        C3 --> C3A[Valid From/Until]
-        C3 --> C3B[Response Deadlines]
-    end
+    %% Context Layer
+    C --> C1[Conversation Context]
+    C1 --> C1A[Conversation ID]
+    C1 --> C1B[Conversation State]
+    C1 --> C1C[History Reference]
     
-    subgraph "Performative Layer"
-        P --> P1[Type]
-        P --> P2[Subtype]
-        P --> P3[Strength]
-        P --> P4[Conditions]
-        
-        P1 --> P1A[request]
-        P1 --> P1B[inform]
-        P1 --> P1C[query]
-        P1 --> P1D[propose]
-        
-        P4 --> P4A[Preconditions]
-        P4 --> P4B[Postconditions]
-    end
+    C --> C2[References]
+    C2 --> C2A[Previous Messages]
+    C2 --> C2B[External Resources]
     
-    subgraph "Content Layer"
-        CT --> CT1[Format]
-        CT --> CT2[Schema URI]
-        CT --> CT3[Data Payload]
-        CT --> CT4[Encoding]
-    end
+    C --> C3[Temporal Context]
+    C3 --> C3A[Valid From/Until]
+    C3 --> C3B[Response Deadlines]
     
-    subgraph "Semantic Layer"
-        S --> S1[Ontology Reference]
-        S --> S2[Concepts]
-        S --> S3[Relations]
-        S --> S4[Interpretation Rules]
-        
-        S2 --> S2A[Concept URIs]
-        S2 --> S2B[Confidence Scores]
-        
-        S3 --> S3A[Subject-Predicate-Object]
-    end
+    %% Performative Layer
+    P --> P1[Type]
+    P1 --> P1A[request]
+    P1 --> P1B[inform]
+    P1 --> P1C[query]
+    P1 --> P1D[propose]
     
-    subgraph "Expectations Layer"
-        EX --> EX1[Response Format]
-        EX --> EX2[Processing Preferences]
-        EX --> EX3[Quality Requirements]
-        
-        EX1 --> EX1A[Required Elements]
-        EX1 --> EX1B[Deadlines]
-        
-        EX2 --> EX2A[Parallelism]
-        EX2 --> EX2B[Fallback Strategies]
-        
-        EX3 --> EX3A[Confidence Thresholds]
-        EX3 --> EX3B[Precision Levels]
-    end
+    P --> P2[Subtype]
+    P --> P3[Strength]
+    
+    P --> P4[Conditions]
+    P4 --> P4A[Preconditions]
+    P4 --> P4B[Postconditions]
+    
+    %% Content Layer
+    CT --> CT1[Format]
+    CT --> CT2[Schema URI]
+    CT --> CT3[Data Payload]
+    CT --> CT4[Encoding]
+    
+    %% Semantic Layer
+    S --> S1[Ontology Reference]
+    
+    S --> S2[Concepts]
+    S2 --> S2A[Concept URIs]
+    S2 --> S2B[Confidence Scores]
+    
+    S --> S3[Relations]
+    S3 --> S3A[Subject-Predicate-Object]
+    
+    S --> S4[Interpretation Rules]
+    
+    %% Expectations Layer
+    EX --> EX1[Response Format]
+    EX1 --> EX1A[Required Elements]
+    EX1 --> EX1B[Deadlines]
+    
+    EX --> EX2[Processing Preferences]
+    EX2 --> EX2A[Parallelism]
+    EX2 --> EX2B[Fallback Strategies]
+    
+    EX --> EX3[Quality Requirements]
+    EX3 --> EX3A[Confidence Thresholds]
+    EX3 --> EX3B[Precision Levels]
 ```
 ### Envelope: Core Metadata
 
